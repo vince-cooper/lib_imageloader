@@ -59,9 +59,12 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(libs.sdk.kext)
     if (providers.gradleProperty("enable.local.debug").get().toBoolean()) {
+        println("enable.local.debug = true")
         implementation(project(":lib_imageloader"))
     } else {
-        implementation(libs.libs.imageloader)
+        println("enable.local.debug = false")
+        implementation(libs.lib.imageloader)
     }
 }
